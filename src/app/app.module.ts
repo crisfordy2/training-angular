@@ -3,16 +3,29 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './modules/material/material.module';
+
+import { HeaderComponent } from './components/commons/header/header.component';
+import { ComponentSidenavComponent } from './components/commons/component-sidenav/component-sidenav.component';
+import { ComponentCreateUsersComponent } from './components/component-create-users/component-create-users.component';
+import { ComponentListUsersComponent } from './components/component-list-users/component-list-users.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    ComponentCreateUsersComponent,
+    ComponentSidenavComponent,
+    ComponentListUsersComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
