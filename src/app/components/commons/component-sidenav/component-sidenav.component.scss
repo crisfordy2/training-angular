@@ -5,3 +5,15 @@
   margin: 0px;
   background-color: bisque;
 }
+
+.container-sidenav mat-sidenav {
+  position: fixed;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  min-width: 260px;
+}
+
+.example-sidenav-content section main {
+  padding: 80px;
+}

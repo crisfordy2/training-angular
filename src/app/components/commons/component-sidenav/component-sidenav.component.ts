@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ShareDataService } from 'src/app/services/share-data.service';
 
 @Component({
   selector: 'app-component-sidenav',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./component-sidenav.component.scss'],
 })
 export class ComponentSidenavComponent implements OnInit {
-  constructor() {}
+  @ViewChild('sidenav') prueba: any;
+  optionSideBar: number = 1;
+
+  constructor(private shareDataService: ShareDataService) {
+    console.log('INICIO EL CONSTRUCTOR');
+    this.abrir();
+  }
 
   ngOnInit(): void {}
-  showFiller = false;
+
+  abrir(): void {
+    this.shareDataService.sideBar.subscribe(() => this.prueba.toggle());
+  }
 }

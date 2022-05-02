@@ -1,11 +1,29 @@
 <mat-sidenav-container class="container-sidenav">
-  <mat-sidenav #sidenav class="example-sidenav" mode="side">
-    <p>Auto-resizing sidenav</p>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened>
+    <div>
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option (click)="optionSideBar = 1"
+          >Add new user</mat-list-option
+        >
+        <mat-list-option (click)="optionSideBar = 2">List User</mat-list-option>
+        <mat-list-option (click)="optionSideBar = 3"
+          >Other actions</mat-list-option
+        >
+      </mat-selection-list>
+    </div>
   </mat-sidenav>
 
-  <div class="example-sidenav-content">
-    <button type="button" mat-button (click)="sidenav.toggle()">
-      Toggle sidenav
-    </button>
-  </div>
+  <mat-sidenav-content class="example-sidenav-content">
+    <section>
+      <main [ngSwitch]="optionSideBar">
+        <app-component-create-users
+          *ngSwitchCase="1"
+        ></app-component-create-users>
+        <app-component-list-users *ngSwitchCase="2"></app-component-list-users>
+        <div *ngSwitchCase="3">
+          <h3>Other Option</h3>
+        </div>
+      </main>
+    </section>
+  </mat-sidenav-content>
 </mat-sidenav-container>
