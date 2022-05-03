@@ -1,17 +1,19 @@
-<h2>Create admin user (Form template)</h2>
+<h2>Create normal user (Form Reactive)</h2>
 
-<form #formUser="ngForm" (ngSubmit)="ngSubmitForm(formUser)">
+<form [formGroup]="formUser" (ngSubmit)="ngSubmitForm()">
   <div class="mb-4">
     <label for="name" class="form-label">Name</label>
     <input
       type="text"
       class="form-control"
       name="name"
-      [(ngModel)]="model.name"
       required
-      #name="ngModel"
+      formControlName="name"
     />
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+    <div
+      [hidden]="!formUser.get('name')?.errors?.['required'] || !formUser.get('name')?.touched "
+      class="alert alert-danger"
+    >
       This field is required.
     </div>
   </div>
@@ -25,8 +27,7 @@
       class="form-check-input"
       id="checkAdult"
       name="checkAdult"
-      [(ngModel)]="model.checkAdult"
-      required
+      formControlName="checkAdult"
     />
   </div>
 
@@ -36,7 +37,7 @@
       name="department"
       id="department"
       class="form-select form-select-sm"
-      [(ngModel)]="model.department"
+      formControlName="department"
     >
       <option selected>Open this select menu</option>
       <option value="marketing">Marketing</option>
@@ -53,12 +54,11 @@
       id="comment"
       rows="4"
       placeholder="Leave a comment......"
-      [(ngModel)]="model.comment"
+      formControlName="comment"
       required
-      #comment="ngModel"
     ></textarea>
     <div
-      [hidden]="comment.valid || comment.pristine"
+      [hidden]="!formUser.get('comment')?.errors?.['required'] || !formUser.get('comment')?.touched "
       class="alert alert-danger"
     >
       This field is required.

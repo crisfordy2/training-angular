@@ -10,7 +10,11 @@ import { HeaderComponent } from './components/commons/header/header.component';
 import { ComponentSidenavComponent } from './components/commons/component-sidenav/component-sidenav.component';
 import { ComponentCreateUsersComponent } from './components/component-create-users/component-create-users.component';
 import { ComponentListUsersComponent } from './components/component-list-users/component-list-users.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateUserTwoComponent } from './components/create-user-two/create-user-two.component';
+import { NormalUserListComponent } from './components/normal-user-list/normal-user-list.component';
+import { AdminUserListComponent } from './components/admin-user-list/admin-user-list.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,10 @@ import { FormsModule } from '@angular/forms';
     ComponentCreateUsersComponent,
     ComponentSidenavComponent,
     ComponentListUsersComponent,
+    CreateUserTwoComponent,
+    NormalUserListComponent,
+    AdminUserListComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +34,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
